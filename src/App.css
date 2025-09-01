@@ -1,38 +1,244 @@
-.App {
-  text-align: center;
+/* Overall page */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+   display: flex;               
+  justify-content: center;    
+  align-items: center;        
+  min-height: 100vh;           
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Container */
+.container {
+  width: 90%;
+  max-width: 850px;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-top: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Title */
+.container h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2b6cb0;
+  margin-bottom: 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Grid Layout for form */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+
+/* Each field group */
+form > div {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0;
+}
+
+/* Make certain elements span full width */
+form > div:nth-child(3),
+form > div:nth-child(4),
+form > div:nth-child(5),
+button[type="submit"] {
+  grid-column: span 2;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Inputs & Selects */
+input[type="text"],
+input[type="file"],
+select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+  transition: border 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus,
+select:focus {
+  border-color: #2b6cb0;
+  outline: none;
+}
+
+/* Upload input */
+input[type="file"] {
+  padding: 30px;
+  border: 1px dashed #ccc;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+}
+
+input[type="file"]:hover {
+  border-color: #2b6cb0;
+  color: #2b6cb0;
+}
+
+/* Add More Button */
+.add-more {
+  margin-top: 6px;
+  padding: 6px 12px;
+  background: #2b6cb0;
+  color: #fff;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.add-more:hover {
+  background: #245a94;
+}
+
+.add-more:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  background: #38a169;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+  background: #2f855a;
+}
+
+button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+
+.form-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Form title */
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c63b5;
+  font-weight: 600;
+}
+
+/* Row layout for paired inputs */
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+/* Each form group */
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Inputs */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2c63b5;
+  box-shadow: 0 0 4px rgba(44, 99, 181, 0.3);
+}
+
+/* Full-width sections */
+.full-width {
+  margin-bottom: 16px;
+}
+
+/* ================= Dynamic Inputs ================= */
+.dynamic-input-wrapper {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.dynamic-input {
+  flex: 1;
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.remove-btn {
+  margin-left: 8px;
+  padding: 6px 10px;
+  border: none;
+  background: #d7d5d5;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.remove-btn:hover {
+  background: #e3dfdf;
+}
+
+
+.dynamic-input-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 15px;
 }
